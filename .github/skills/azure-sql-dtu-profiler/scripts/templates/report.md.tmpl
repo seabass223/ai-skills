@@ -1,0 +1,25 @@
+# Azure SQL DTU Pressure Report
+
+**Server:** {{SERVER}}  
+**Database:** {{DATABASE}}  
+**Window:** {{START_UTC}} – {{END_UTC}} UTC ({{WINDOW}}, {{BUCKET_MINUTES}}-min buckets)
+
+---
+
+## Resource Pressure (DTU-ish)
+
+| Metric     | Avg     | Max     | Peak Bucket (UTC)   |
+|------------|---------|---------|---------------------|
+| DTU-ish %  | {{DTU_AVG}} | {{DTU_MAX}} | {{DTU_PEAK}} |
+| CPU %      | {{CPU_AVG}} | {{CPU_MAX}} | {{CPU_PEAK}} |
+| Data IO %  | {{DATAIO_AVG}} | {{DATAIO_MAX}} | {{DATAIO_PEAK}} |
+| Log IO %   | {{LOGIO_AVG}} | {{LOGIO_MAX}} | {{LOGIO_PEAK}} |
+| Memory %   | {{MEM_AVG}} | {{MEM_MAX}} | {{MEM_PEAK}} |
+
+> DTU-ish = `max(CPU%, DataIO%, LogIO%)` per bucket.
+
+---
+
+## Top Query Offenders (by total CPU)
+
+{{OFFENDERS}}
